@@ -7,4 +7,4 @@ But it is built in a modular and scaleable way so that the AI can differantiate 
 
 I also have the first iteration of "building placement" here. which will be used for basebuilding.
 
-Demo video here: https://youtu.be/E5ib1yrlhDQ
+Demo video here: https://www.youtube.com/watch?v=EuXbGW9r7DM
