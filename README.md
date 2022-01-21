@@ -6,3 +6,5 @@ For now there is only a rudimentary AI collecting wood and delivering to the sto
 But it is built in a scaleable way so that the AI can differantiate between different resources, and where to deliver it.
 
 I also have the first iteration of "building placement" here. which will be used for basebuilding.
+
+Demo video here: https://youtu.be/E5ib1yrlhDQ
