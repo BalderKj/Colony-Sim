@@ -113,7 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6dabed3e801a44d865d7e060efea9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LumberyardBlueprintPlacement: {fileID: 3004024877869002004, guid: 8ca958e5a20056948a64079c1c32c47e, type: 3}
+  LumberyardBluePrintPlacement: {fileID: 0}
+  isPlacing: 0
 --- !u!1 &1227212371290517128
 GameObject:
   m_ObjectHideFlags: 0
