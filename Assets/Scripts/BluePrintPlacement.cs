@@ -8,8 +8,11 @@ public class BluePrintPlacement : MonoBehaviour
     Vector3 movePoint;
     
     bool canPlace = true;
+    
+    private int numberOfCollisions;
     public GameObject prefab;
     public BuildCanvas BuildCanvas;
+    
     
     Renderer rend;
 
@@ -19,8 +22,7 @@ public class BluePrintPlacement : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    { 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         LayerMask mask = LayerMask.GetMask("Ground");
         if(Physics.Raycast(ray, out hit, 50000.0f, mask))
@@ -43,9 +45,11 @@ public class BluePrintPlacement : MonoBehaviour
             BuildCanvas.isPlacing = false;
             /*refund resource cost */
         }
+
+        
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         canPlace = false;
     }
