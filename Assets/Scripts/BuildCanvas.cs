@@ -12,7 +12,6 @@ public class BuildCanvas : MonoBehaviour
         if(GameObject.Find("LumberyardBluePrintPlacement(Clone)") == null)
         {
             Instantiate(LumberyardBluePrintPlacement);
-            Debug.Log("already have a clone");
             isPlacing = true;
             
         }

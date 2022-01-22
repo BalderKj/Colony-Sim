@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3004024877869002004, guid: d62ea782853ab0e4382b086ab4d17da9, type: 3}
   BuildCanvas: {fileID: 2982538836470255078, guid: 60707b36fc03959468c3fcba66c6a52a, type: 3}
+  resourceController: {fileID: 0}
+  woodCost: 20
 --- !u!65 &-6051784321915023810
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -8,10 +8,15 @@ public class BluePrintPlacement : MonoBehaviour
     Vector3 movePoint;
     
     bool canPlace = true;
-    
-    private int numberOfCollisions;
+    bool reqResources = false;
     public GameObject prefab;
     public BuildCanvas BuildCanvas;
+
+    public ResourceController resourceController;
+
+    //resource costs
+    public int woodCost;
+
     
     
     Renderer rend;
@@ -19,10 +24,15 @@ public class BluePrintPlacement : MonoBehaviour
     void Start() 
     {
         rend = GetComponent<Renderer>();
+        resourceController = FindObjectOfType<ResourceController>();
+        
     }
 
     void Update()
     { 
+        //check for required resources
+        ResourceCheck();
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         LayerMask mask = LayerMask.GetMask("Ground");
         if(Physics.Raycast(ray, out hit, 50000.0f, mask))
@@ -30,11 +40,17 @@ public class BluePrintPlacement : MonoBehaviour
             transform.position = hit.point;
         }
 
+        if(reqResources == false)
+        {
+            canPlace = false;
+        }
+
         if(Input.GetMouseButton(0) && canPlace)
         {
             Instantiate(prefab, transform.position, transform.rotation);
-            Destroy(gameObject);
             BuildCanvas.isPlacing = false;
+            Destroy(gameObject);
+
             
         }
         if(canPlace){rend.material.color = Color.green;}else{rend.material.color = Color.red;}
@@ -43,10 +59,8 @@ public class BluePrintPlacement : MonoBehaviour
         {
             Destroy(gameObject);
             BuildCanvas.isPlacing = false;
-            /*refund resource cost */
         }
 
-        
     }
 
     void OnTriggerStay(Collider other)
@@ -57,6 +71,19 @@ public class BluePrintPlacement : MonoBehaviour
     void OnTriggerExit(Collider other) 
     {
         canPlace = true;
+    }
+
+    void ResourceCheck()
+    {
+        if (woodCost <= resourceController.totalWoodCount)
+        { 
+            reqResources = true; 
+        }
+        else
+        {
+            reqResources = false;
+        }
+
     }
 
 }

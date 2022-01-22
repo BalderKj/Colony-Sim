@@ -14,6 +14,7 @@ public class ResourceController : MonoBehaviour
     {
         totalResourceCount();
         UpdateText();
+        Debug.Log("resourceController currently has wood: " + totalWoodCount);
 
     }
     public void totalResourceCount()
